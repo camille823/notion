@@ -1,0 +1,42 @@
+  <style>
+    body {
+      font-family: "iA Writer Mono";
+    }
+  </style>
+   week of <span id="weekof"></span>
+
+   <script>
+
+     function startDate(date, days) {
+      let start_date = new Date();
+      start_date.setDate(start_date.getDate() - days);
+      return start_date;
+     }
+
+     function endDate(date, days) {
+      let end_date = new Date();
+      add_up = 6 - days;
+      end_date.setDate(end_date.getDate() + add_up);
+      return end_date;
+     }
+
+     const d = new Date();
+     let dayOfWeek = d.getDay();
+
+
+     let today = new Date();
+     let month = today.getMonth()
+     const monthNames = ["jan","feb","mar","apr","may","june","july","aug","sept","oct","nov","dec"]
+
+     let sunday = startDate(today, dayOfWeek);
+     let saturday = endDate(today, dayOfWeek);
+
+     let weekOf = `${monthNames[today.getMonth()]} ${sunday.getDate()} - ${monthNames[today.getMonth()]} ${saturday.getDate()}`
+
+     document.getElementById("weekof").innerHTML = weekOf;
+
+
+
+   </script>
+</body>
+</html>
